@@ -17,7 +17,16 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-  <style>
+  
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const saved = localStorage.getItem('prk-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = saved || (preferred ? 'dark' : 'light');
+    })();
+  </script>
+<style>
     :root {
       --bg: #f5f5f7;
       --surface: rgba(255,255,255,0.78);
@@ -683,6 +692,70 @@
         transition-duration: .01ms !important;
       }
     }
+  
+    /* ---------- DARK MODE + LIQUID GLASS ---------- */
+    :root {
+      color-scheme: light;
+      --glass-bg: rgba(255, 255, 255, .58);
+      --glass-border: rgba(255, 255, 255, .72);
+      --glass-shadow: 0 18px 55px rgba(31, 38, 135, .10);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #101114;
+      --surface: #181a1f;
+      --surface-solid: #181a1f;
+      --text: #f5f7fb;
+      --muted: #aeb4c0;
+      --line: rgba(255,255,255,.12);
+      --accent: #69b5ff;
+      --accent-soft: rgba(105,181,255,.14);
+      --glass-bg: rgba(26, 29, 37, .62);
+      --glass-border: rgba(255,255,255,.14);
+      --glass-shadow: 0 18px 55px rgba(0,0,0,.28);
+      --shadow: 0 20px 60px rgba(0,0,0,.24);
+    }
+
+    body {
+      transition: background-color .25s ease, color .25s ease;
+      background-image:
+        radial-gradient(circle at 8% 8%, rgba(0,113,227,.06), transparent 30rem),
+        radial-gradient(circle at 92% 18%, rgba(124,92,255,.05), transparent 26rem);
+    }
+
+    .glass-surface {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: saturate(145%) blur(18px);
+      backdrop-filter: saturate(145%) blur(18px);
+    }
+
+    .theme-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--glass-bg);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover { transform: translateY(-1px); }
+    .theme-toggle:active { transform: scale(.96); }
+    .theme-toggle:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent), transparent 55%); outline-offset: 3px; }
+
+    @supports not ((backdrop-filter: blur(1px))) {
+      .glass-surface, .theme-toggle { background: var(--surface-solid, var(--surface)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, .theme-toggle { transition: none; }
+    }
+
   </style>
 </head>
 
@@ -719,6 +792,7 @@
 
       </nav>
 
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme-toggle>◐</button>
     </div>
   </header>
 
@@ -870,7 +944,7 @@
 
     <!-- ================= PHILOSOPHY ================= -->
 
-    <section class="philosophy reveal">
+    <section class="philosophy reveal glass-surface">
 
       <div class="philosophy-inner">
 
@@ -899,150 +973,12 @@
     </section>
 
 
-    <!-- ================= DESIGN PRINCIPLES ================= -->
-
-    <section class="section">
-
-      <div class="section-header reveal">
-
-        <h2>
-          Designed for<br>
-          deep learning.
-        </h2>
-
-        <p>
-          Clean interfaces, focused explanations, purposeful motion and
-          visual memory aids keep attention on what matters.
-        </p>
-
-      </div>
-
-
-      <div class="principles">
-
-        <article class="principle reveal">
-          <span>01</span>
-          <h3>Clarity</h3>
-          <p>
-            Every section has a clear purpose and a strong visual hierarchy.
-          </p>
-        </article>
-
-        <article class="principle reveal">
-          <span>02</span>
-          <h3>Visualization</h3>
-          <p>
-            Difficult ideas can become easier when relationships are visible.
-          </p>
-        </article>
-
-        <article class="principle reveal">
-          <span>03</span>
-          <h3>Precision</h3>
-          <p>
-            Formulas, conditions, exceptions and JEE traps are treated carefully.
-          </p>
-        </article>
-
-        <article class="principle reveal">
-          <span>04</span>
-          <h3>Progress</h3>
-          <p>
-            Chapters grow continuously as new concepts are learned.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= CURRENT CHAPTER ================= -->
-
-    <section class="section" id="current-chapter">
-
-      <div class="section-header reveal">
-        <h2>Start with Physics.</h2>
-
-        <p>
-          Your first chapter workspace is ready to grow topic by topic.
-        </p>
-      </div>
-
-
-      <a
-        href="physics.html"
-        class="chapter-card reveal"
-        style="display:block;">
-
-        <div class="chapter-label">
-          Physics · Chapter 01
-        </div>
-
-        <h3>
-          Electric Charges &amp; Fields
-        </h3>
-
-        <p>
-          Conceptual notes, definitions, formulas, conditions, visualizations,
-          JEE traps and problem-solving insights will be built here as the
-          chapter progresses.
-        </p>
-
-        <div class="chapter-status">
-          Chapter workspace →
-        </div>
-
-      </a>
-
-    </section>
-
-    <!-- ================= SINGLE-FILE SUBJECT WORKSPACES ================= -->
-
-    <section class="section" id="physics">
-      <div class="section-header reveal">
-        <h2>Physics, made visible.</h2>
-        <p>Build concepts from first principles, then connect them to formulas, diagrams, simulations and JEE problem solving.</p>
-      </div>
-      <article class="workspace-card reveal" id="electric-charges-fields">
-        <div class="chapter-label">Physics · Chapter 01 · In Progress</div>
-        <h3>Electric Charges &amp; Fields</h3>
-        <p>The master chapter workspace will grow topic by topic. Verified notes, LaTeX formulas, conditions, JEE insights, traps and purposeful visualizations will be added here.</p>
-        <a class="workspace-link" href="#current-chapter">Open chapter workspace →</a>
-      </article>
-      <p class="single-file-note">This page is intentionally self-contained. Future Physics chapters and topics can be added to this same HTML file without breaking the subject navigation.</p>
-    </section>
-
-    <section class="section" id="chemistry">
-      <div class="section-header reveal">
-        <h2>Chemistry, connected.</h2>
-        <p>Organize Physical, Organic and Inorganic Chemistry with precise definitions, mechanisms, trends, reactions, formulas and revision systems.</p>
-      </div>
-      <div class="workspace-grid">
-        <article class="workspace-card reveal"><div class="chapter-label">Chemistry · Physical</div><h3>Physical Chemistry</h3><p>Numerical reasoning, laws, graphs and carefully stated conditions.</p><span class="workspace-link">Workspace ready →</span></article>
-        <article class="workspace-card reveal"><div class="chapter-label">Chemistry · Organic</div><h3>Organic Chemistry</h3><p>Mechanisms, reaction patterns, selectivity and memory aids.</p><span class="workspace-link">Workspace ready →</span></article>
-        <article class="workspace-card reveal"><div class="chapter-label">Chemistry · Inorganic</div><h3>Inorganic Chemistry</h3><p>Trends, structures, exceptions and high-yield revision points.</p><span class="workspace-link">Workspace ready →</span></article>
-      </div>
-    </section>
-
-    <section class="section" id="mathematics">
-      <div class="section-header reveal">
-        <h2>Mathematics, understood.</h2>
-        <p>Develop mathematical thinking through concepts, identities, visual reasoning, derivations and problem-solving strategies.</p>
-      </div>
-      <div class="workspace-grid">
-        <article class="workspace-card reveal"><div class="chapter-label">Mathematics · Algebra</div><h3>Algebra</h3><p>Build fluency with structures, equations, sequences and identities.</p><span class="workspace-link">Workspace ready →</span></article>
-        <article class="workspace-card reveal"><div class="chapter-label">Mathematics · Calculus</div><h3>Calculus</h3><p>Use graphs, limits, derivatives and integration with precision.</p><span class="workspace-link">Workspace ready →</span></article>
-        <article class="workspace-card reveal"><div class="chapter-label">Mathematics · Geometry</div><h3>Coordinate &amp; 3D Geometry</h3><p>Connect equations, vectors, loci and spatial visualization.</p><span class="workspace-link">Workspace ready →</span></article>
-      </div>
-    </section>
-
     <section class="section" id="feedback">
       <div class="section-header reveal">
         <h2>Learn together.</h2>
         <p>PRK Deepmind is built by Priyanshu as a growing public JEE learning space. Suggestions and feedback are welcome.</p>
       </div>
-      <div class="contact-card reveal">
+      <div class="contact-card reveal glass-surface">
         <p><strong>Email</strong><br><a href="mailto:prkworldcare@gmail.com">prkworldcare@gmail.com</a></p>
         <p><strong>Telegram</strong><br><a href="https://t.me/prkgoes" target="_blank" rel="noopener noreferrer">@prkgoes</a></p>
       </div>
@@ -1080,6 +1016,27 @@
     );
 
     revealElements.forEach((element) => observer.observe(element));
+  </script>
+
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      if (!toggle) return;
+      const update = () => {
+        const dark = root.dataset.theme === 'dark';
+        toggle.setAttribute('aria-pressed', String(dark));
+        toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.textContent = dark ? '☀' : '◐';
+      };
+      toggle.addEventListener('click', () => {
+        root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('prk-theme', root.dataset.theme);
+        update();
+      });
+      update();
+    })();
   </script>
 
 </body>
