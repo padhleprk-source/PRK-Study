@@ -1,1 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PRK Deepmind — Learn deeply. Visualize clearly. Master completely." />
+  <title>PRK Deepmind</title>
 
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: rgba(255,255,255,0.78);
+      --surface-solid: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: rgba(0,0,0,0.08);
+      --accent: #0071e3;
+      --accent-soft: rgba(0,113,227,0.10);
+      --radius: 28px;
+      --max: 1180px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(22px);
+      -webkit-backdrop-filter: saturate(180%) blur(22px);
+      background: rgba(245,245,247,0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: auto;
+      min-height: 68px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0,0,0,0.055);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn:focus-visible,
+    .subject-card:focus-visible,
+    .cta:focus-visible {
+      outline: 3px solid rgba(0,113,227,0.35);
+      outline-offset: 3px;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      max-width: var(--max);
+      margin: auto;
+      padding: 110px 24px 90px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: .55; }
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 8vw, 104px);
+      line-height: .96;
+      letter-spacing: -0.065em;
+      font-weight: 750;
+      max-width: 900px;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(90deg, #1d1d1f, #0071e3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 30px;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(19px, 2vw, 24px);
+      letter-spacing: -0.015em;
+    }
+
+    .cta-row {
+      margin-top: 38px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      cursor: pointer;
+      padding: 14px 21px;
+      border-radius: 999px;
+      background: var(--text);
+      color: white;
+      font-weight: 600;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    }
+
+    .cta.secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    /* ---------- GENERAL ---------- */
+
+    .section {
+      max-width: var(--max);
+      margin: auto;
+      padding: 100px 24px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 46px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin-bottom: 18px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 650px;
+    }
+
+    /* ---------- SUBJECTS ---------- */
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .subject-card {
+      position: relative;
+      min-height: 340px;
+      padding: 34px;
+      border-radius: var(--radius);
+      background: var(--surface-solid);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.11);
+      border-color: rgba(0,113,227,0.20);
+    }
+
+    .subject-number {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .subject-icon {
+      position: absolute;
+      right: -20px;
+      top: 15px;
+      font-size: 125px;
+      opacity: .055;
+      user-select: none;
+    }
+
+    .subject-card h3 {
+      font-size: 42px;
+      letter-spacing: -0.045em;
+      margin-bottom: 10px;
+    }
+
+    .subject-card p {
+      color: var(--muted);
+      max-width: 300px;
+    }
+
+    .subject-arrow {
+      margin-top: 24px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ---------- PHILOSOPHY ---------- */
+
+    .philosophy {
+      background: #000;
+      color: #fff;
+      border-radius: 42px;
+      max-width: var(--max);
+      margin: 50px auto;
+      padding: 80px 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .philosophy-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .philosophy h2 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .philosophy p {
+      margin-top: 24px;
+      color: #a1a1a6;
+      font-size: 19px;
+      max-width: 600px;
+    }
+
+    .orbit {
+      width: min(380px, 80vw);
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      position: relative;
+      animation: rotate 18s linear infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 13%;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+    }
+
+    .orbit::after {
+      inset: 27%;
+    }
+
+    .orb-dot {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 35px rgba(255,255,255,.7);
+    }
+
+    .orb-core {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ---------- CHAPTER ---------- */
+
+    .chapter-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 42px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .chapter-label {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .chapter-card h3 {
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .chapter-card p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .chapter-status {
+      display: inline-flex;
+      margin-top: 25px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #f0f0f2;
+      color: #555;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ---------- PRINCIPLES ---------- */
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .principle {
+      padding: 28px;
+      min-height: 190px;
+      background: white;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .principle span {
+      display: block;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .principle h3 {
+      font-size: 20px;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .principle p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      max-width: var(--max);
+      margin: auto;
+      padding: 40px 24px 55px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    /* ---------- REVEAL ---------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 850px) {
+      .subjects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subject-card {
+        min-height: 280px;
+      }
+
+      .philosophy-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .principles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 2px;
+      }
+
+      .nav-btn {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-inner {
+        padding: 0 15px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .nav-btn {
+        padding: 7px 7px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
+
+      .section {
+        padding: 70px 18px;
+      }
+
+      .chapter-card {
+        padding: 28px;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .philosophy {
+        margin: 25px 12px;
+        padding: 65px 20px;
+        border-radius: 30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <header class="nav">
+    <div class="nav-inner">
+
+      <a class="brand" href="index.html">
+        PRK <span>Insights Lab</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+
+        <button
+          class="nav-btn"
+          onclick="window.location.href='physics.html'">
+          Physics
+        </button>
+
+        <button
+          class="nav-btn"
+          onclick="window.location.href='chemistry.html'">
+          Chemistry
+        </button>
+
+        <button
+          class="nav-btn"
+          onclick="window.location.href='mathematics.html'">
+          Mathematics
+        </button>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content reveal">
+
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          JEE Learning Platform
+        </div>
+
+        <h1>
+          Learn deeply.<br>
+          <span class="gradient">Visualize clearly.</span><br>
+          Master completely.
+        </h1>
+
+        <p>
+          A focused learning space for Physics, Chemistry and Mathematics —
+          built around concepts, visual understanding, precise formulas and
+          JEE-oriented problem solving.
+        </p>
+
+        <div class="cta-row">
+
+          <button
+            class="cta"
+            onclick="window.location.href='physics.html'">
+            Explore Physics →
+          </button>
+
+          <button
+            class="cta secondary"
+            onclick="document.getElementById('subjects').scrollIntoView({behavior:'smooth'})">
+            Explore Subjects
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= SUBJECTS ================= -->
+
+    <section class="section" id="subjects">
+
+      <div class="section-header reveal">
+        <h2>Three subjects.<br>One clear system.</h2>
+
+        <p>
+          Each subject gets its own dedicated learning environment,
+          organized chapter by chapter.
+        </p>
+      </div>
+
+
+      <div class="subjects-grid">
+
+        <!-- PHYSICS -->
+
+        <a
+          href="physics.html"
+          class="subject-card reveal"
+          aria-label="Open Physics page">
+
+          <span class="subject-number">01 / PHYSICS</span>
+
+          <div class="subject-icon">⚡</div>
+
+          <div>
+            <h3>Physics</h3>
+
+            <p>
+              Understand the laws of nature through concepts,
+              mathematical models, diagrams and interactive visualizations.
+            </p>
+
+            <div class="subject-arrow">
+              Open Physics →
+            </div>
+          </div>
+
+        </a>
+
+
+        <!-- CHEMISTRY -->
+
+        <a
+          href="chemistry.html"
+          class="subject-card reveal"
+          aria-label="Open Chemistry page">
+
+          <span class="subject-number">02 / CHEMISTRY</span>
+
+          <div class="subject-icon">⚗</div>
+
+          <div>
+            <h3>Chemistry</h3>
+
+            <p>
+              Build strong command over Physical, Organic and Inorganic
+              Chemistry with structured JEE-focused notes.
+            </p>
+
+            <div class="subject-arrow">
+              Open Chemistry →
+            </div>
+          </div>
+
+        </a>
+
+
+        <!-- MATHEMATICS -->
+
+        <a
+          href="mathematics.html"
+          class="subject-card reveal"
+          aria-label="Open Mathematics page">
+
+          <span class="subject-number">03 / MATHEMATICS</span>
+
+          <div class="subject-icon">∑</div>
+
+          <div>
+            <h3>Mathematics</h3>
+
+            <p>
+              Develop mathematical thinking through concepts, identities,
+              formulas, visual reasoning and problem-solving strategies.
+            </p>
+
+            <div class="subject-arrow">
+              Open Mathematics →
+            </div>
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PHILOSOPHY ================= -->
+
+    <section class="philosophy reveal">
+
+      <div class="philosophy-inner">
+
+        <div>
+          <h2>
+            Don't just<br>
+            memorize.<br>
+            Understand.
+          </h2>
+
+          <p>
+            PRK Insights Lab is designed around one idea:
+            when you understand the relationship between concepts,
+            formulas become easier to remember and problems become easier
+            to solve.
+          </p>
+        </div>
+
+        <div class="orbit" aria-hidden="true">
+          <div class="orb-dot"></div>
+          <div class="orb-core">CONCEPT</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DESIGN PRINCIPLES ================= -->
+
+    <section class="section">
+
+      <div class="section-header reveal">
+
+        <h2>
+          Designed for<br>
+          deep learning.
+        </h2>
+
+        <p>
+          Clean interfaces, focused explanations, purposeful motion and
+          visual memory aids keep attention on what matters.
+        </p>
+
+      </div>
+
+
+      <div class="principles">
+
+        <article class="principle reveal">
+          <span>01</span>
+          <h3>Clarity</h3>
+          <p>
+            Every section has a clear purpose and a strong visual hierarchy.
+          </p>
+        </article>
+
+        <article class="principle reveal">
+          <span>02</span>
+          <h3>Visualization</h3>
+          <p>
+            Difficult ideas can become easier when relationships are visible.
+          </p>
+        </article>
+
+        <article class="principle reveal">
+          <span>03</span>
+          <h3>Precision</h3>
+          <p>
+            Formulas, conditions, exceptions and JEE traps are treated carefully.
+          </p>
+        </article>
+
+        <article class="principle reveal">
+          <span>04</span>
+          <h3>Progress</h3>
+          <p>
+            Chapters grow continuously as new concepts are learned.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CURRENT CHAPTER ================= -->
+
+    <section class="section">
+
+      <div class="section-header reveal">
+        <h2>Start with Physics.</h2>
+
+        <p>
+          Your first chapter workspace is ready to grow topic by topic.
+        </p>
+      </div>
+
+
+      <a
+        href="physics.html"
+        class="chapter-card reveal"
+        style="display:block;">
+
+        <div class="chapter-label">
+          Physics · Chapter 01
+        </div>
+
+        <h3>
+          Electric Charges &amp; Fields
+        </h3>
+
+        <p>
+          Conceptual notes, definitions, formulas, conditions, visualizations,
+          JEE traps and problem-solving insights will be built here as the
+          chapter progresses.
+        </p>
+
+        <div class="chapter-status">
+          Chapter workspace →
+        </div>
+
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    <strong>PRK Insights Lab</strong> · Learn deeply. Visualize clearly.
+    Master completely.
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+  </script>
+
+</body>
+</html>
