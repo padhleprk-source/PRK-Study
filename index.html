@@ -490,6 +490,61 @@
       font-size: 14px;
     }
 
+    /* ---------- SINGLE-FILE SUBJECT WORKSPACES ---------- */
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .workspace-card {
+      display: block;
+      min-height: 220px;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.05);
+    }
+
+    .workspace-card h3 {
+      margin: 8px 0 10px;
+      font-size: 28px;
+      letter-spacing: -.04em;
+    }
+
+    .workspace-card p { color: var(--muted); }
+
+    .workspace-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--accent);
+      font-weight: 650;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding: 32px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .contact-card a { color: var(--accent); font-weight: 650; }
+
+    .single-file-note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--muted);
+      border-radius: 0 12px 12px 0;
+      font-size: 14px;
+    }
+
     /* ---------- FOOTER ---------- */
 
     footer {
@@ -523,6 +578,10 @@
     /* ---------- RESPONSIVE ---------- */
 
     @media (max-width: 850px) {
+      .workspace-grid { grid-template-columns: 1fr; }
+      .contact-card { grid-template-columns: 1fr; }
+
+
       .subjects-grid {
         grid-template-columns: 1fr;
       }
@@ -602,34 +661,34 @@
   </style>
 </head>
 
-<body>
+<body id="top">
 
   <!-- ================= NAVIGATION ================= -->
 
   <header class="nav">
     <div class="nav-inner">
 
-      <a class="brand" href="index.html">
-        PRK <span>Insights Lab</span>
+      <a class="brand" href="#top">
+        PRK <span>Deepmind</span>
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
 
         <button
           class="nav-btn"
-          onclick="window.location.href='physics.html'">
+          onclick="document.getElementById('physics').scrollIntoView({behavior:'smooth'})">
           Physics
         </button>
 
         <button
           class="nav-btn"
-          onclick="window.location.href='chemistry.html'">
+          onclick="document.getElementById('chemistry').scrollIntoView({behavior:'smooth'})">
           Chemistry
         </button>
 
         <button
           class="nav-btn"
-          onclick="window.location.href='mathematics.html'">
+          onclick="document.getElementById('mathematics').scrollIntoView({behavior:'smooth'})">
           Mathematics
         </button>
 
@@ -667,7 +726,7 @@
 
           <button
             class="cta"
-            onclick="window.location.href='physics.html'">
+            onclick="document.getElementById('physics').scrollIntoView({behavior:'smooth'})">
             Explore Physics →
           </button>
 
@@ -702,7 +761,7 @@
         <!-- PHYSICS -->
 
         <a
-          href="physics.html"
+          href="#physics"
           class="subject-card reveal"
           aria-label="Open Physics page">
 
@@ -729,7 +788,7 @@
         <!-- CHEMISTRY -->
 
         <a
-          href="chemistry.html"
+          href="#chemistry"
           class="subject-card reveal"
           aria-label="Open Chemistry page">
 
@@ -756,7 +815,7 @@
         <!-- MATHEMATICS -->
 
         <a
-          href="mathematics.html"
+          href="#mathematics"
           class="subject-card reveal"
           aria-label="Open Mathematics page">
 
@@ -798,7 +857,7 @@
           </h2>
 
           <p>
-            PRK Insights Lab is designed around one idea:
+            PRK Deepmind is designed around one idea:
             when you understand the relationship between concepts,
             formulas become easier to remember and problems become easier
             to solve.
@@ -875,7 +934,7 @@
 
     <!-- ================= CURRENT CHAPTER ================= -->
 
-    <section class="section">
+    <section class="section" id="current-chapter">
 
       <div class="section-header reveal">
         <h2>Start with Physics.</h2>
@@ -887,7 +946,7 @@
 
 
       <a
-        href="physics.html"
+        href="#physics"
         class="chapter-card reveal"
         style="display:block;">
 
@@ -913,14 +972,66 @@
 
     </section>
 
+    <!-- ================= SINGLE-FILE SUBJECT WORKSPACES ================= -->
+
+    <section class="section" id="physics">
+      <div class="section-header reveal">
+        <h2>Physics, made visible.</h2>
+        <p>Build concepts from first principles, then connect them to formulas, diagrams, simulations and JEE problem solving.</p>
+      </div>
+      <article class="workspace-card reveal" id="electric-charges-fields">
+        <div class="chapter-label">Physics · Chapter 01 · In Progress</div>
+        <h3>Electric Charges &amp; Fields</h3>
+        <p>The master chapter workspace will grow topic by topic. Verified notes, LaTeX formulas, conditions, JEE insights, traps and purposeful visualizations will be added here.</p>
+        <a class="workspace-link" href="#current-chapter">Open chapter workspace →</a>
+      </article>
+      <p class="single-file-note">This page is intentionally self-contained. Future Physics chapters and topics can be added to this same HTML file without breaking the subject navigation.</p>
+    </section>
+
+    <section class="section" id="chemistry">
+      <div class="section-header reveal">
+        <h2>Chemistry, connected.</h2>
+        <p>Organize Physical, Organic and Inorganic Chemistry with precise definitions, mechanisms, trends, reactions, formulas and revision systems.</p>
+      </div>
+      <div class="workspace-grid">
+        <article class="workspace-card reveal"><div class="chapter-label">Chemistry · Physical</div><h3>Physical Chemistry</h3><p>Numerical reasoning, laws, graphs and carefully stated conditions.</p><span class="workspace-link">Workspace ready →</span></article>
+        <article class="workspace-card reveal"><div class="chapter-label">Chemistry · Organic</div><h3>Organic Chemistry</h3><p>Mechanisms, reaction patterns, selectivity and memory aids.</p><span class="workspace-link">Workspace ready →</span></article>
+        <article class="workspace-card reveal"><div class="chapter-label">Chemistry · Inorganic</div><h3>Inorganic Chemistry</h3><p>Trends, structures, exceptions and high-yield revision points.</p><span class="workspace-link">Workspace ready →</span></article>
+      </div>
+    </section>
+
+    <section class="section" id="mathematics">
+      <div class="section-header reveal">
+        <h2>Mathematics, understood.</h2>
+        <p>Develop mathematical thinking through concepts, identities, visual reasoning, derivations and problem-solving strategies.</p>
+      </div>
+      <div class="workspace-grid">
+        <article class="workspace-card reveal"><div class="chapter-label">Mathematics · Algebra</div><h3>Algebra</h3><p>Build fluency with structures, equations, sequences and identities.</p><span class="workspace-link">Workspace ready →</span></article>
+        <article class="workspace-card reveal"><div class="chapter-label">Mathematics · Calculus</div><h3>Calculus</h3><p>Use graphs, limits, derivatives and integration with precision.</p><span class="workspace-link">Workspace ready →</span></article>
+        <article class="workspace-card reveal"><div class="chapter-label">Mathematics · Geometry</div><h3>Coordinate &amp; 3D Geometry</h3><p>Connect equations, vectors, loci and spatial visualization.</p><span class="workspace-link">Workspace ready →</span></article>
+      </div>
+    </section>
+
+    <section class="section" id="feedback">
+      <div class="section-header reveal">
+        <h2>Learn together.</h2>
+        <p>PRK Deepmind is built by Priyanshu as a growing public JEE learning space. Suggestions and feedback are welcome.</p>
+      </div>
+      <div class="contact-card reveal">
+        <p><strong>Email</strong><br><a href="mailto:prkworldcare@gmail.com">prkworldcare@gmail.com</a></p>
+        <p><strong>Telegram</strong><br><a href="https://t.me/prkgoes" target="_blank" rel="noopener noreferrer">@prkgoes</a></p>
+      </div>
+    </section>
+
   </main>
 
 
   <!-- ================= FOOTER ================= -->
 
   <footer>
-    <strong>PRK Insights Lab</strong> · Learn deeply. Visualize clearly.
-    Master completely.
+    <strong>PRK Deepmind</strong> · Learn deeply. Visualize clearly.
+    Master completely.<br>
+    <a href="#feedback">Feedback &amp; contact →</a>
   </footer>
 
 
