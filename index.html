@@ -68,6 +68,31 @@
       font: inherit;
     }
 
+    /* ---------- TOUCH INTERACTION ---------- */
+
+    a,
+    button,
+    [role="button"],
+    input,
+    select,
+    textarea,
+    summary {
+      -webkit-tap-highlight-color: transparent;
+      tap-highlight-color: transparent;
+    }
+
+    button,
+    a,
+    [role="button"] {
+      touch-action: manipulation;
+    }
+
+    button:active,
+    a:active,
+    [role="button"]:active {
+      transform: scale(.98);
+    }
+
     /* ---------- NAVIGATION ---------- */
 
     .nav {
