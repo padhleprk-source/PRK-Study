@@ -1,8 +1,102 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="PRK Deepmind — Chemistry JEE notes"><title>Chemistry · PRK Deepmind</title><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="PRK Deepmind — Chemistry JEE notes"><title>Chemistry · PRK Deepmind</title><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const saved = localStorage.getItem('prk-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = saved || (preferred ? 'dark' : 'light');
+    })();
+  </script>
+<style>
 :root{--bg:#f5f5f7;--surface:#fff;--text:#1d1d1f;--muted:#6e6e73;--line:rgba(0,0,0,.09);--accent:#0071e3;--soft:rgba(0,113,227,.1);--max:1180px;--radius:26px;--shadow:0 20px 60px rgba(0,0,0,.07)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}/* ---------- TOUCH INTERACTION ---------- */
 a,button,[role="button"],input,select,textarea,summary{-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}button,a,[role="button"]{touch-action:manipulation}button:active,a:active,[role="button"]:active{transform:scale(.98)}
 .nav{position:sticky;top:0;z-index:10;background:rgba(245,245,247,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}.nav-inner{max-width:var(--max);min-height:68px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:750;font-size:20px}.brand span{color:var(--accent)}.nav-links{display:flex;gap:6px;flex-wrap:wrap}.nav-btn{padding:9px 13px;border-radius:999px;color:var(--muted);font-size:14px}.nav-btn:hover,.nav-btn.active{background:var(--soft);color:var(--accent)}main{max-width:var(--max);margin:auto}.hero{padding:92px 24px 70px}.eyebrow,.label{color:var(--accent);font-size:13px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.hero h1{max-width:850px;margin:14px 0 20px;font-size:clamp(48px,8vw,94px);line-height:.98;letter-spacing:-.065em}.hero p{max-width:680px;color:var(--muted);font-size:clamp(18px,2vw,22px)}.section{padding:70px 24px}.section h2{font-size:clamp(34px,5vw,62px);line-height:1;letter-spacing:-.055em;margin:0 0 16px}.section-intro{max-width:680px;color:var(--muted);font-size:18px;margin-bottom:34px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.card h3{font-size:26px;letter-spacing:-.04em;margin:8px 0}.card p{color:var(--muted)}.formula{margin:20px 0;padding:24px;overflow:auto;background:#111;color:#fff;border-radius:18px;font-size:1.2rem}.callout{margin-top:22px;padding:18px 20px;background:var(--soft);border-left:3px solid var(--accent);border-radius:0 14px 14px 0}.button{display:inline-block;margin-top:22px;padding:12px 18px;border-radius:999px;background:var(--text);color:#fff;font-weight:650}.back{display:inline-block;margin-bottom:24px;color:var(--accent);font-weight:650}footer{max-width:var(--max);margin:auto;padding:34px 24px 55px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}@media(max-width:800px){.grid{grid-template-columns:1fr}.nav-inner{align-items:flex-start;padding-block:14px}.hero{padding-top:62px}.nav-links{justify-content:flex-end}.card{padding:24px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style></head><body><header class="nav"><div class="nav-inner"><a class="brand" href="index.html">PRK <span>Deepmind</span></a><nav class="nav-links" aria-label="Subject navigation"><a class="nav-btn" href="index.html">Home</a><a class="nav-btn " href="physics.html">Physics</a><a class="nav-btn active" href="chemistry.html">Chemistry</a><a class="nav-btn " href="mathematics.html">Mathematics</a></nav></div></header><main><section class="hero"><a class="back" href="index.html">← Back to PRK Deepmind</a><div class="eyebrow">JEE Master Notes · Chemistry</div><h1>Chemistry</h1><p>Connect microscopic structure, reactions, trends and numerical laws through precise JEE-oriented notes.</p></section>
-<section class="section"><h2>Choose your Chemistry track.</h2><p class="section-intro">Each branch will receive its own chapters, mechanisms, trends, formulae, exceptions and JEE-focused revision material.</p><div class="grid"><article class="card"><div class="label">Track 01</div><h3>Physical Chemistry</h3><p>Numerical concepts, laws, graphs, units and conditions.</p></article><article class="card"><div class="label">Track 02</div><h3>Organic Chemistry</h3><p>Mechanisms, reaction maps, selectivity and memory aids.</p></article><article class="card"><div class="label">Track 03</div><h3>Inorganic Chemistry</h3><p>Periodic trends, structures, exceptions and revision tables.</p></article></div><div class="callout"><strong>Status:</strong> Subject workspace ready. New chapters will be added here as they are studied.</div></section>
-</main><footer><strong>PRK Deepmind</strong> · Built by Priyanshu for deep, visual and precise JEE learning.<br><a href="mailto:prkworldcare@gmail.com">Feedback: prkworldcare@gmail.com</a> · <a href="https://t.me/prkgoes" target="_blank" rel="noopener">Telegram @prkgoes</a></footer></body></html>
+
+    /* ---------- DARK MODE + LIQUID GLASS ---------- */
+    :root {
+      color-scheme: light;
+      --glass-bg: rgba(255, 255, 255, .58);
+      --glass-border: rgba(255, 255, 255, .72);
+      --glass-shadow: 0 18px 55px rgba(31, 38, 135, .10);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #101114;
+      --surface: #181a1f;
+      --surface-solid: #181a1f;
+      --text: #f5f7fb;
+      --muted: #aeb4c0;
+      --line: rgba(255,255,255,.12);
+      --accent: #69b5ff;
+      --accent-soft: rgba(105,181,255,.14);
+      --glass-bg: rgba(26, 29, 37, .62);
+      --glass-border: rgba(255,255,255,.14);
+      --glass-shadow: 0 18px 55px rgba(0,0,0,.28);
+      --shadow: 0 20px 60px rgba(0,0,0,.24);
+    }
+
+    body {
+      transition: background-color .25s ease, color .25s ease;
+      background-image:
+        radial-gradient(circle at 8% 8%, rgba(0,113,227,.06), transparent 30rem),
+        radial-gradient(circle at 92% 18%, rgba(124,92,255,.05), transparent 26rem);
+    }
+
+    .glass-surface {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: saturate(145%) blur(18px);
+      backdrop-filter: saturate(145%) blur(18px);
+    }
+
+    .theme-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--glass-bg);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover { transform: translateY(-1px); }
+    .theme-toggle:active { transform: scale(.96); }
+    .theme-toggle:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent), transparent 55%); outline-offset: 3px; }
+
+    @supports not ((backdrop-filter: blur(1px))) {
+      .glass-surface, .theme-toggle { background: var(--surface-solid, var(--surface)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, .theme-toggle { transition: none; }
+    }
+
+  </style></head><body><header class="nav"><div class="nav-inner"><a class="brand" href="index.html">PRK <span>Deepmind</span></a><nav class="nav-links" aria-label="Subject navigation"><a class="nav-btn" href="index.html">Home</a><a class="nav-btn " href="physics.html">Physics</a><a class="nav-btn active" href="chemistry.html">Chemistry</a><a class="nav-btn " href="mathematics.html">Mathematics</a></nav><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme-toggle>◐</button></div></header><main><section class="hero"><a class="back" href="index.html">← Back to PRK Deepmind</a><div class="eyebrow">JEE Master Notes · Chemistry</div><h1>Chemistry</h1><p>Connect microscopic structure, reactions, trends and numerical laws through precise JEE-oriented notes.</p></section>
+<section class="section"><h2>Choose your Chemistry track.</h2><p class="section-intro">Each branch will receive its own chapters, mechanisms, trends, formulae, exceptions and JEE-focused revision material.</p><div class="grid"><article class="card glass-surface"><div class="label">Track 01</div><h3>Physical Chemistry</h3><p>Numerical concepts, laws, graphs, units and conditions.</p></article><article class="card glass-surface"><div class="label">Track 02</div><h3>Organic Chemistry</h3><p>Mechanisms, reaction maps, selectivity and memory aids.</p></article><article class="card glass-surface"><div class="label">Track 03</div><h3>Inorganic Chemistry</h3><p>Periodic trends, structures, exceptions and revision tables.</p></article></div><div class="callout"><strong>Status:</strong> Subject workspace ready. New chapters will be added here as they are studied.</div></section>
+</main><footer><strong>PRK Deepmind</strong> · Built by Priyanshu for deep, visual and precise JEE learning.<br><a href="mailto:prkworldcare@gmail.com">Feedback: prkworldcare@gmail.com</a> · <a href="https://t.me/prkgoes" target="_blank" rel="noopener">Telegram @prkgoes</a></footer>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      if (!toggle) return;
+      const update = () => {
+        const dark = root.dataset.theme === 'dark';
+        toggle.setAttribute('aria-pressed', String(dark));
+        toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.textContent = dark ? '☀' : '◐';
+      };
+      toggle.addEventListener('click', () => {
+        root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('prk-theme', root.dataset.theme);
+        update();
+      });
+      update();
+    })();
+  </script>
+
+</body></html>
