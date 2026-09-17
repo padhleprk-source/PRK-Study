@@ -255,6 +255,10 @@ footer strong { color: var(--text); }
 /* ---------- TOPIC: ELECTRIC CHARGE ---------- */
 .topic-stack{display:grid;gap:22px}.topic-panel{padding:clamp(24px,4vw,42px);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.topic-panel h3{margin:8px 0 12px;font-size:clamp(24px,3vw,36px);letter-spacing:-.04em}.topic-panel p{color:var(--muted);max-width:48rem}.topic-panel ul{margin:16px 0 0 1.2rem;color:var(--muted)}.topic-panel li+li{margin-top:8px}.formula-large{margin:22px 0;padding:22px;overflow:auto;background:#111318;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:18px;font-size:clamp(1.05rem,2vw,1.35rem)}.formula-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.formula-meta div{padding:15px;border:1px solid var(--line);border-radius:16px;background:var(--surface-raised)}.formula-meta strong{display:block;margin-bottom:4px;color:var(--text)}.formula-meta span{font-size:14px;color:var(--muted)}.insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.insight{padding:22px;border-radius:20px;border:1px solid var(--line);background:var(--surface-raised)}.insight h4{margin-bottom:8px;color:var(--accent)}.insight p{font-size:15px}.charge-visual{position:relative;min-height:250px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 48%),var(--surface-solid);border:1px solid var(--line);border-radius:22px}.charge-visual::before,.charge-visual::after{content:"";position:absolute;border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);border-radius:50%;width:190px;height:90px;transform:rotate(25deg)}.charge-visual::after{transform:rotate(-25deg);width:260px;height:120px}.charge-core{position:relative;z-index:1;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:30px;font-weight:750;box-shadow:0 0 55px color-mix(in srgb,var(--accent) 55%,transparent)}.charge-label{position:absolute;bottom:16px;left:18px;color:var(--muted);font-size:13px}.topic-kicker{margin-bottom:8px;color:var(--accent);font-size:12px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}@media(max-width:700px){.formula-meta,.insight-grid{grid-template-columns:1fr}.charge-visual{min-height:220px}}
 
+  
+/* ---------- TOPIC: COULOMB'S LAW ---------- */
+.coulomb-stack{display:grid;gap:22px}.law-equation{margin:22px 0;padding:24px;overflow:auto;background:#111318;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:18px;font-size:clamp(1.05rem,2vw,1.35rem)}.law-table{width:100%;border-collapse:collapse;margin-top:18px;font-size:15px}.law-table th,.law-table td{padding:14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.law-table th{color:var(--text);font-weight:700}.law-table td{color:var(--muted)}.scenario-controls{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.scenario-button{min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface-raised);color:var(--text);cursor:pointer;touch-action:manipulation;transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease}.scenario-button:hover,.scenario-button.is-active{background:var(--accent);border-color:var(--accent);color:#fff}.scenario-button:active{transform:scale(.97)}.scenario-button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}.inverse-square-stage{position:relative;min-height:300px;padding:34px 20px 50px;overflow:hidden;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--accent) 11%,transparent),transparent 45%),var(--surface-solid);border:1px solid var(--line);border-radius:22px}.charge-node{position:absolute;top:50%;width:58px;height:58px;margin-top:-29px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:750;box-shadow:0 0 32px color-mix(in srgb,var(--accent) 42%,transparent);z-index:2}.charge-node--left{left:8%;background:#d94a62}.charge-node--right{background:#3b8eea;transition:left .6s cubic-bezier(.22,1,.36,1)}.force-arrow{position:absolute;top:calc(50% - 54px);height:4px;border-radius:99px;background:var(--accent);transform-origin:left center;transition:left .6s cubic-bezier(.22,1,.36,1),width .6s cubic-bezier(.22,1,.36,1),opacity .35s ease}.force-arrow::after{content:"";position:absolute;right:-2px;top:50%;width:12px;height:12px;border-top:4px solid var(--accent);border-right:4px solid var(--accent);transform:translateY(-50%) rotate(45deg)}.distance-line{position:absolute;top:calc(50% + 48px);height:2px;background:var(--muted);opacity:.65;transition:left .6s cubic-bezier(.22,1,.36,1),width .6s cubic-bezier(.22,1,.36,1)}.distance-line::before,.distance-line::after{content:"";position:absolute;top:50%;width:8px;height:8px;border-top:2px solid var(--muted);border-right:2px solid var(--muted)}.distance-line::before{left:0;transform:translate(-1px,-50%) rotate(-135deg)}.distance-line::after{right:0;transform:translate(1px,-50%) rotate(45deg)}.distance-label{position:absolute;top:calc(50% + 60px);left:50%;transform:translateX(-50%);color:var(--muted);font-size:14px;white-space:nowrap}.scenario-readout{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.scenario-readout div{padding:15px;border:1px solid var(--line);border-radius:16px;background:var(--surface-raised)}.scenario-readout strong{display:block;color:var(--text);font-size:19px}.scenario-readout span{color:var(--muted);font-size:13px}.scenario-note{margin-top:16px;color:var(--muted);font-size:14px}@media(max-width:700px){.law-table{font-size:13px}.law-table th,.law-table td{padding:10px 7px}.inverse-square-stage{min-height:270px}.scenario-readout{grid-template-columns:1fr}.charge-node{width:50px;height:50px;margin-top:-25px}.charge-node--left{left:7%}}
+
   </style></head><body><header class="nav"><div class="nav-inner"><a class="brand" href="index.html">PRK <span>Deepmind</span></a><nav class="nav-links" aria-label="Subject navigation"><a class="nav-btn" href="index.html">Home</a><a class="nav-btn active" href="physics.html">Physics</a><a class="nav-btn " href="chemistry.html">Chemistry</a><a class="nav-btn " href="mathematics.html">Mathematics</a></nav><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme-toggle>◐</button></div></header><main><section class="hero"><a class="back" href="index.html">← Back to PRK Deepmind</a><div class="eyebrow">JEE Master Notes · Physics</div><h1>Physics</h1><p>Understand the laws of nature through concepts, mathematical models, visual explanations and JEE-oriented problem solving.</p></section>
 <section class="section" id="electric-charges-fields"><div class="label">Physics · Chapter 01 · In Progress</div><h2>Electric Charges &amp; Fields</h2><p class="section-intro">This master chapter will grow topic by topic. Every explanation will be verified, expanded and preserved in this page.</p><div class="grid"><article class="card glass-surface"><div class="label">Chapter workspace</div><h3>Topics will be added here</h3><p>Definitions, physical meaning, derivations, conditions, JEE Main and Advanced insights, traps and examples.</p><a class="button" href="#formula-vault">View formula vault</a></article><article class="card glass-surface"><div class="label">Visual learning</div><h3>Accurate simulations</h3><p>Interactive figures will be added when they genuinely improve understanding of fields, flux, symmetry or superposition.</p></article><article class="card glass-surface"><div class="label">Revision</div><h3>Quick recall system</h3><p>Formula sheets, one-line revision points, memory cues and a chapter checklist will be built continuously.</p></article></div><div class="callout"><strong>Status:</strong> In Progress. The chapter will be considered complete only when Priyanshu explicitly says “Chapter Complete.”</div></section>
     <section class="section" id="topic-electric-charge">
@@ -325,6 +329,51 @@ footer strong { color: var(--text); }
       </div>
     </section>
 
+
+    <section class="section" id="topic-coulomb-law">
+      <div class="label">Physics · Electric Charges &amp; Fields · Topic 02</div>
+      <h2>Coulomb’s Law</h2>
+      <p class="section-intro">Coulomb’s law gives the electrostatic force between two point charges. It is the starting point for analysing electric interaction quantitatively.</p>
+
+      <div class="coulomb-stack">
+        <article class="topic-panel">
+          <div class="topic-kicker">Core law</div>
+          <h3>Magnitude of electrostatic force</h3>
+          <p>For two point charges with magnitudes \(|q_1|\) and \(|q_2|\), separated by distance \(r\) in vacuum or air, the magnitude of the electrostatic force is</p>
+          <div class="law-equation">\[F=\frac{1}{4\pi\varepsilon_0}\frac{|q_1q_2|}{r^2}=k\frac{|q_1q_2|}{r^2}\]</div>
+          <p>The proportionality statement is \(F\propto |q_1q_2|\) and \(F\propto 1/r^2\). The absolute value is used when writing the magnitude, because magnitude cannot be negative.</p>
+          <table class="law-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>SI unit / value</th></tr></thead><tbody><tr><td>\(F\)</td><td>Magnitude of electrostatic force</td><td>newton (\(\mathrm{N}\))</td></tr><tr><td>\(q_1,q_2\)</td><td>Charges of the two point particles</td><td>coulomb (\(\mathrm{C}\))</td></tr><tr><td>\(r\)</td><td>Distance between their centres</td><td>metre (\(\mathrm{m}\))</td></tr><tr><td>\(\varepsilon_0\)</td><td>Permittivity of free space</td><td>\(8.854\times10^{-12}\ \mathrm{C^2N^{-1}m^{-2}}\)</td></tr><tr><td>\(k\)</td><td>Coulomb constant in vacuum</td><td>\(\dfrac{1}{4\pi\varepsilon_0}\approx9.0\times10^9\ \mathrm{Nm^2C^{-2}}\)</td></tr></tbody></table>
+        </article>
+
+        <article class="topic-panel">
+          <div class="topic-kicker">Direction and sign</div>
+          <h3>Like repel; unlike attract</h3>
+          <p>The force acts along the line joining the two charges. The sign of \(q_1q_2\) determines the nature of the interaction:</p>
+          <div class="insight-grid"><div class="insight"><h4>Like charges</h4><p>For \(q_1q_2&gt;0\), two positive or two negative charges repel each other.</p></div><div class="insight"><h4>Unlike charges</h4><p>For \(q_1q_2&lt;0\), a positive and a negative charge attract each other.</p></div></div>
+          <div class="law-equation">\[\vec F_{12}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\,\hat{\mathbf r}_{12}\]</div>
+          <p>In the vector form, direction is carried by the unit vector and the signed product. In the magnitude form, use \(|q_1q_2|\) and describe attraction or repulsion separately.</p>
+          <p class="callout"><strong>Newton’s third law:</strong> The forces on the two charges are equal in magnitude and opposite in direction: \(\vec F_{12}=-\vec F_{21}\).</p>
+        </article>
+
+        <article class="topic-panel">
+          <div class="topic-kicker">Interactive intuition</div>
+          <h3>Why the inverse-square law matters</h3>
+          <p>Keep the charges fixed and change only their separation. The force changes as \(1/r^2\). Select a scenario to see the distance and relative force update.</p>
+          <div class="scenario-controls" role="group" aria-label="Choose charge separation scenario"><button class="scenario-button is-active" type="button" data-distance="1">Distance \(r\)</button><button class="scenario-button" type="button" data-distance="2">Distance \(2r\)</button><button class="scenario-button" type="button" data-distance="3">Distance \(3r\)</button></div>
+          <div class="inverse-square-stage" data-inverse-square aria-live="polite"><div class="charge-node charge-node--left">+q</div><div class="charge-node charge-node--right" data-charge-right>+q</div><div class="force-arrow" data-force-arrow></div><div class="distance-line" data-distance-line></div><div class="distance-label" data-distance-label>r</div></div>
+          <div class="scenario-readout"><div><strong data-force-value>F</strong><span>relative force</span></div><div><strong data-distance-value>r</strong><span>separation</span></div><div><strong data-factor-value>1×</strong><span>compared with baseline</span></div></div>
+          <p class="scenario-note"><strong>Read it precisely:</strong> At \(2r\), force becomes \(F/4\), not “four times less” as a literal negative quantity. At \(3r\), force becomes \(F/9\).</p>
+        </article>
+
+        <article class="topic-panel">
+          <div class="topic-kicker">Conditions and JEE layer</div>
+          <h3>When can we use Coulomb’s law directly?</h3>
+          <ul><li>Use it directly for ideal point charges or spherically symmetric charge distributions treated as point charges from outside.</li><li>For finite bodies, the separation must be large compared with their dimensions, or the geometry must justify the point-charge approximation.</li><li>In a material medium, replace \(\varepsilon_0\) by \(\varepsilon=K\varepsilon_0\), so \(F=\dfrac{1}{4\pi\varepsilon}\dfrac{|q_1q_2|}{r^2}=\dfrac{F_0}{K}\).</li><li>For multiple charges, calculate each pairwise force and add them vectorially using superposition.</li></ul>
+          <div class="insight-grid"><div class="insight"><h4>JEE Main</h4><p>Know the formula, units, direction, sign-based attraction/repulsion, and quick ratios such as \(F_2/F_1=(r_1/r_2)^2\).</p></div><div class="insight"><h4>JEE Advanced</h4><p>Use vectors, symmetry, superposition and medium dependence. Never add force magnitudes when directions differ.</p></div><div class="insight"><h4>Common traps</h4><p>Do not use signed \(q_1q_2\) inside a magnitude formula; do not forget square on distance; do not use distance from an arbitrary origin instead of separation between charges.</p></div><div class="insight"><h4>Fast ratio</h4><p>If charge product changes by a factor \(a\) and distance changes by a factor \(b\), then \(F\) changes by \(a/b^2\).</p></div></div>
+        </article>
+      </div>
+    </section>
+
 <section class="section" id="formula-vault"><h2>Formula vault</h2><p class="section-intro">Verified formulas will be placed here as topics are studied. LaTeX will be checked for notation, signs, units and conditions.</p><div class="formula">\[\vec{E}=\frac{\vec{F}}{q_0}\]</div></section>
 </main><footer><strong>PRK Deepmind</strong> · Built by Priyanshu for deep, visual and precise JEE learning.<br><a href="mailto:prkworldcare@gmail.com">Feedback: prkworldcare@gmail.com</a> · <a href="https://t.me/prkgoes" target="_blank" rel="noopener">Telegram @prkgoes</a></footer>
   <script>
@@ -344,6 +393,46 @@ footer strong { color: var(--text); }
         update();
       });
       update();
+    })();
+  </script>
+
+
+  <script>
+    (() => {
+      const stage = document.querySelector('[data-inverse-square]');
+      if (!stage) return;
+      const buttons = [...stage.parentElement.querySelectorAll('[data-distance]')];
+      const right = stage.querySelector('[data-charge-right]');
+      const arrow = stage.querySelector('[data-force-arrow]');
+      const line = stage.querySelector('[data-distance-line]');
+      const distanceLabel = stage.querySelector('[data-distance-label]');
+      const forceValue = stage.parentElement.querySelector('[data-force-value]');
+      const distanceValue = stage.parentElement.querySelector('[data-distance-value]');
+      const factorValue = stage.parentElement.querySelector('[data-factor-value]');
+      const update = (n) => {
+        const left = 8;
+        const rightPositions = {1: 55, 2: 72, 3: 84};
+        const rightPos = rightPositions[n];
+        const gap = rightPos - left;
+        const forceWidth = Math.max(18, gap * (1 / (n * n)) * .72);
+        right.style.left = `${rightPos}%`;
+        arrow.style.left = `${left + 5}%`;
+        arrow.style.width = `${forceWidth}%`;
+        arrow.style.opacity = `${Math.max(.32, 1 / (n * n))}`;
+        line.style.left = `${left + 5}%`;
+        line.style.width = `${Math.max(12, gap - 5)}%`;
+        distanceLabel.textContent = n === 1 ? 'r' : `${n}r`;
+        forceValue.textContent = n === 1 ? 'F' : `F/${n*n}`;
+        distanceValue.textContent = n === 1 ? 'r' : `${n}r`;
+        factorValue.textContent = n === 1 ? '1×' : `1/${n*n}×`;
+        buttons.forEach((button) => {
+          const active = Number(button.dataset.distance) === n;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+      };
+      buttons.forEach((button) => button.addEventListener('click', () => update(Number(button.dataset.distance))));
+      update(1);
     })();
   </script>
 
